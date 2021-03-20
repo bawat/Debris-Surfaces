@@ -25,7 +25,7 @@ function debris_add_surface() {
 
 	/*
 	 * As the debris map is actually a bunch of smaller surfaces next to each other
-	 * I need to draw the thing to all 4 closest regions to prevent the drawing being
+	 * I need to draw the thing to all the surrounding regions to prevent the drawing being
 	 * cut off at the edges of the region.
 	*/
 	forEach(IGNORE_debris_surface_get_surrounding_regions(xp, yp, longestLength/2), function(region){

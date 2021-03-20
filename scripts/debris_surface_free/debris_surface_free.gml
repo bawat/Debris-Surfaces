@@ -5,5 +5,4 @@ function debris_surface_free() {
 		surface_free(existingRegion.surface);
 	});
 	global.all_debris_surface_regions = 0;
-	global.debris_begin_loadtime = 0;
 }

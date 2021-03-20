@@ -1,5 +1,6 @@
 /// @author Bawat (bawat@hotmail.co.uk)
 /// @description For an object, attempts to draw itself into the debris map
+/// @param radius Used to determine if drawing this sprite will overlap any region edges and resolve it
 function debris_add_this(radius) {
 	forEach(IGNORE_debris_surface_get_surrounding_regions(x, y, radius), function(surroundingRegion){
 		IGNORE_debris_surface_set_region(surroundingRegion);

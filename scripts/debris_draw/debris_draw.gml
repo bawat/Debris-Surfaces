@@ -16,7 +16,7 @@ function debris_draw() {
 
 	forEach(global.all_debris_surface_regions, function(existingRegion){
 		if(!surface_exists(existingRegion.surface)){
-			existingRegion.surface = IGNORE_debris_surface_create_surface_for_region(existingRegion);
+			existingRegion.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(existingRegion);
 		}
 	
 		if(	IGNORE_isOnScreen(existingRegion.xStart, existingRegion.yStart) ||
@@ -39,15 +39,9 @@ function debris_draw() {
 	});
 
 	//Draw a rectangle around the hovered-over region to show that the map is actually made up of small regions
-	draw_rectangle_color(debugHoveredRegionXStart, debugHoveredRegionYStart, debugHoveredRegionXEnd, debugHoveredRegionYEnd, c_blue,c_blue,c_blue,c_blue, true);
-
-	//We need to delay the usage of the backdrop until the backdrop layer has fully loaded
-	if(!variable_global_exists("debris_begin_loadtime")){
-		global.debris_begin_loadtime = current_time + region_loading_delay_miliseconds;
-	}else if(global.debris_begin_loadtime == 0){
-		global.debris_begin_loadtime = current_time + region_loading_delay_miliseconds;
+	if(show_segment_outline){
+		draw_rectangle_color(debugHoveredRegionXStart, debugHoveredRegionYStart, debugHoveredRegionXEnd, debugHoveredRegionYEnd, c_blue,c_blue,c_blue,c_blue, true);
 	}
-	if(current_time < global.debris_begin_loadtime) return;
 
 	//Load on-screen chunks into surfaces we can use
 	//a little hacky - but samples both onscreen and slightly offscreen coordinates to generate a surface at each region
