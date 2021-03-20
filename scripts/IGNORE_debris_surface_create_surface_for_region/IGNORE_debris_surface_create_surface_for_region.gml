@@ -9,7 +9,7 @@ function IGNORE_debris_surface_create_surface_for_region(region) {
 function IGNORE_debris_surface_create_diffuse_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		drawSprites(region.xStart, region.yStart, 0);
+		IGNORE_drawSprites(region.xStart, region.yStart, diffuse_map_sprite_index);
 	surface_reset_target();
 	return surf;
 }
@@ -18,7 +18,7 @@ function IGNORE_debris_surface_create_diffuse_surface_for_region(region) {
 function IGNORE_debris_surface_create_normal_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		drawSprites(region.xStart, region.yStart, normal_map_sprite_index);
+		IGNORE_drawSprites(region.xStart, region.yStart, normal_map_sprite_index);
 	surface_reset_target();
 	return surf;
 }
@@ -27,11 +27,11 @@ function IGNORE_debris_surface_create_normal_surface_for_region(region) {
 function IGNORE_debris_surface_create_specular_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		drawSprites(region.xStart, region.yStart, specular_map_sprite_index);
+		IGNORE_drawSprites(region.xStart, region.yStart, specular_map_sprite_index);
 	surface_reset_target();
 	return surf;
 }
-function drawSprites(absoluteTopLeftX, absoluteTopLeftY, imageIndex){
+function IGNORE_drawSprites(absoluteTopLeftX, absoluteTopLeftY, imageIndex){
 	var transformToSurfaceOriginX = absoluteTopLeftX;
 	var transformToSurfaceOriginY = absoluteTopLeftY;
 	

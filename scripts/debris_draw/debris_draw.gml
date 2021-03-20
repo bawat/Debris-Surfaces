@@ -15,20 +15,16 @@ function debris_draw() {
 
 
 	forEach(global.all_debris_surface_regions, function(existingRegion){
-		if(!surface_exists(existingRegion.surface)){
-			existingRegion.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(existingRegion);
-		}
-	
-		if(	IGNORE_isOnScreen(existingRegion.xStart, existingRegion.yStart) ||
-			IGNORE_isOnScreen(existingRegion.xStart + region_width, existingRegion.yStart) ||
-			IGNORE_isOnScreen(existingRegion.xStart, existingRegion.yStart + region_height) ||
-			IGNORE_isOnScreen(existingRegion.xStart + region_width, existingRegion.yStart + region_height)
-		){
+		if(IGNORE_regionOnScreen(existingRegion)){
 			//Draw a green background behind any badly loaded Debris Surfaces
 			draw_rectangle_color(existingRegion.xStart, existingRegion.yStart, existingRegion.xEnd, existingRegion.yEnd, c_green,c_green,c_green,c_green, false);
+			
+			if(!surface_exists(existingRegion.surface)){
+				existingRegion.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(existingRegion);
+			}
 			draw_surface(existingRegion.surface, existingRegion.xStart, existingRegion.yStart);
 		
-			//Draw a rectangle around the hovered-over region to show that the map is actually made up of small regions
+			//Setup for drawing a rectangle around the hovered-over region to show that the map is actually made up of small regions
 			if(existingRegion.xStart < mouse_x && mouse_x < existingRegion.xEnd && existingRegion.yStart < mouse_y && mouse_y < existingRegion.yEnd){
 				debugHoveredRegionXStart = existingRegion.xStart;
 				debugHoveredRegionYStart = existingRegion.yStart;
@@ -43,7 +39,7 @@ function debris_draw() {
 		draw_rectangle_color(debugHoveredRegionXStart, debugHoveredRegionYStart, debugHoveredRegionXEnd, debugHoveredRegionYEnd, c_blue,c_blue,c_blue,c_blue, true);
 	}
 
-	//Load on-screen chunks into surfaces we can use
+	//Load all on-screen chunks into regions we can use
 	//a little hacky - but samples both onscreen and slightly offscreen coordinates to generate a surface at each region
 	var loopStartX = camX - region_width;
 	var loopStartY = camY - region_height;

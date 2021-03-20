@@ -1,7 +1,6 @@
 var size = 1 + random(1);
 var timeoutTime = 500;
 
-//Dust effect with a little bit of rubble rebounding
 bloodSpreadSystem = part_system_create();
 part_system_depth(bloodSpreadSystem, 30);
 part_system_automatic_draw(bloodSpreadSystem, false);

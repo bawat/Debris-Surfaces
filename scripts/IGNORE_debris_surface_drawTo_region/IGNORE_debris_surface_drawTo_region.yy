@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "DebrisSurface",
-    "path": "folders/DebrisSurface.yy",
+    "name": "private",
+    "path": "folders/DebrisSurface/private.yy",
   },
   "resourceVersion": "1.0",
-  "name": "debris_surface_backdrop_assign",
+  "name": "IGNORE_debris_surface_drawTo_region",
   "tags": [],
   "resourceType": "GMScript",
 }

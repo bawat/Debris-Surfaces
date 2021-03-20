@@ -27,3 +27,9 @@ function IGNORE_isOnScreen() {
 
 
 }
+function IGNORE_regionOnScreen(region){
+	return IGNORE_isOnScreen(region.xStart, region.yStart) ||
+			IGNORE_isOnScreen(region.xStart + region_width, region.yStart) ||
+			IGNORE_isOnScreen(region.xStart, region.yStart + region_height) ||
+			IGNORE_isOnScreen(region.xStart + region_width, region.yStart + region_height);
+}

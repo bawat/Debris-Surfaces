@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "DebrisSurface",
-    "path": "folders/DebrisSurface.yy",
+    "name": "Storing debris in the map",
+    "path": "folders/DebrisSurface/Storing debris in the map.yy",
   },
   "resourceVersion": "1.0",
   "name": "debris_add_surface",

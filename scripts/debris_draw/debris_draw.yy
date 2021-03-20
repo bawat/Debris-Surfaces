@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "DebrisSurface",
-    "path": "folders/DebrisSurface.yy",
+    "name": "Setting up the debris storage and cleanup",
+    "path": "folders/DebrisSurface/Setting up the debris storage and cleanup.yy",
   },
   "resourceVersion": "1.0",
   "name": "debris_draw",

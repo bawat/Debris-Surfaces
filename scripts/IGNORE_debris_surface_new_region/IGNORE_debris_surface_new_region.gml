@@ -33,10 +33,10 @@ function IGNORE_debris_surface_new_region(argument0, argument1, argument2, argum
 	});
 
 	region.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(region);
-	if(normal_map_sprite_index != -1){
+	if(texture_storage_map_count >= texture_storage_diffuse_and_normal_map){
 		region.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(region);
 	}
-	if(specular_map_sprite_index != -1){
+	if(texture_storage_map_count >= texture_storage_diffuse_and_normals_and_specular){
 		region.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(region);
 	}
 

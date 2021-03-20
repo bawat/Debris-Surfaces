@@ -6,7 +6,7 @@
     "path": "folders/DebrisSurface/Storing debris in the map/debris_add_this.yy",
   },
   "resourceVersion": "1.0",
-  "name": "isBeingDrawnToDebrisSurface",
+  "name": "debris_compositeGraphic",
   "tags": [],
   "resourceType": "GMScript",
 }
