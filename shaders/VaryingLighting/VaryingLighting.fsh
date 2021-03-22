@@ -12,7 +12,7 @@ uniform sampler2D specularMap;              // (u,v)
 
 void main()
 {
-	vec3 sunDirection = normalize(vec3(cos(uTime) , sin(uTime), 0.1));
+	vec3 sunDirection = normalize(vec3(cos(uTime) , sin(uTime), -0.5));
 	
 	vec4 diffuse = texture2D( gm_BaseTexture, v_vTextureCoord );
 	vec4 normalColour = texture2D( normalMap, v_vNormalTexcoord );
@@ -20,7 +20,8 @@ void main()
 	
 	vec4 specular = texture2D( specularMap, v_vSpecularTexcoord );
 	
-	float pixelIllumination = max(-dot(normal, sunDirection), 0.0);
+	float pixelPercentIllumination = max(dot(normal, -sunDirection), 0.0);
+	float highlightIllumination = 1.0;
 	
-    gl_FragColor = vec4(normalColour.rgb, 1.0);
+    gl_FragColor = vec4(diffuse.rgb * pixelPercentIllumination * highlightIllumination, 1.0);
 }

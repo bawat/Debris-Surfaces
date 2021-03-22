@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"Stylized_Stone_Floor_003_roughness","path":"sprites/Stylized_Stone_Floor_003_roughness/Stylized_Stone_Floor_003_roughness.yy",},"order":4,},
     {"id":{"name":"testingAreaBackground","path":"sprites/testingAreaBackground/testingAreaBackground.yy",},"order":1,},
     {"id":{"name":"debris_add_surface","path":"scripts/debris_add_surface/debris_add_surface.yy",},"order":1,},
     {"id":{"name":"debris_add_this","path":"scripts/debris_add_this/debris_add_this.yy",},"order":1,},
@@ -18,6 +17,7 @@
     {"id":{"name":"IGNORE_debris_surface_drawTo_region","path":"scripts/IGNORE_debris_surface_drawTo_region/IGNORE_debris_surface_drawTo_region.yy",},"order":4,},
     {"id":{"name":"IGNORE_debris_surface_create_surface_for_region","path":"scripts/IGNORE_debris_surface_create_surface_for_region/IGNORE_debris_surface_create_surface_for_region.yy",},"order":5,},
     {"id":{"name":"IGNORE_isOnScreen","path":"scripts/IGNORE_isOnScreen/IGNORE_isOnScreen.yy",},"order":6,},
+    {"id":{"name":"Stylized_Stone_Floor_003_specular_CustomMade_","path":"sprites/Stylized_Stone_Floor_003_specular_CustomMade_/Stylized_Stone_Floor_003_specular_CustomMade_.yy",},"order":6,},
     {"id":{"name":"fx_background_debris","path":"objects/fx_background_debris/fx_background_debris.yy",},"order":1,},
     {"id":{"name":"fx_blood","path":"objects/fx_blood/fx_blood.yy",},"order":3,},
     {"id":{"name":"clickingAndText","path":"objects/clickingAndText/clickingAndText.yy",},"order":5,},

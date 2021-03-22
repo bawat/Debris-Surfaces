@@ -53,7 +53,7 @@ function debris_draw() {
 					if(!surface_exists(existingRegion.surface_normal)){
 						existingRegion.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(existingRegion);
 					}
-				    var normalMapUniform = shader_get_sampler_index(VaryingLighting,"uNormalsTextureCoord");
+				    var normalMapUniform = shader_get_sampler_index(VaryingLighting,"normalMap");
 					var normalMapTexture = surface_get_texture(existingRegion.surface_normal);
 					texture_set_stage(normalMapUniform, normalMapTexture);
 					
@@ -65,7 +65,7 @@ function debris_draw() {
 					if(!surface_exists(existingRegion.surface_specular)){
 						existingRegion.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(existingRegion);
 					}
-				    var specularMapUniform = shader_get_sampler_index(VaryingLighting,"uSpecularTextureCoord");
+				    var specularMapUniform = shader_get_sampler_index(VaryingLighting,"specularMap");
 					var specularMapTexture = surface_get_texture(existingRegion.surface_specular);
 					texture_set_stage(specularMapUniform, specularMapTexture);
 				}
