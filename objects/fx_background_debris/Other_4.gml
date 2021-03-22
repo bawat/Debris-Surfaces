@@ -1,2 +1,2 @@
 //This initialises the debris surface
-debris_backdrop_assign(testingAreaBackground);
+debris_backdrop_assign(Stylized_Stone_Floor_003_basecolor, Stylized_Stone_Floor_003_normal);

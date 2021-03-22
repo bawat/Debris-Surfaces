@@ -7,7 +7,6 @@
 function IGNORE_debris_surface_drawTo_region(region, diffuseDrawLamda) {
 	gpu_set_colorwriteenable(true, true, true, false);//Turn alpha drawing off - otherwise the transparency won't be mixed correctly
 	
-	
     if (!surface_exists(region.surface)) {
 		region.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(region);
 	}
@@ -17,7 +16,7 @@ function IGNORE_debris_surface_drawTo_region(region, diffuseDrawLamda) {
 	surface_reset_target();
 	
 	if(argument_count > 2){
-		if(texture_storage_map_count < texture_storage_diffuse_and_normal_map) { show_error("Tried to draw to normal map, when normal maps aren't enabled in the debris_CONFIG.", true); }
+		if(number_of_texture_channels < textures_diffuse_and_normals) { show_error("Tried to draw to normal map, when normal maps aren't enabled in the debris_CONFIG.", true); }
 		if (!surface_exists(region.surface_normal)) {
 			region.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(region);
 		}
@@ -29,7 +28,7 @@ function IGNORE_debris_surface_drawTo_region(region, diffuseDrawLamda) {
 	}
 	
 	if(argument_count > 3){
-		if(texture_storage_map_count < texture_storage_diffuse_and_normals_and_specular) { show_error("Tried to draw to specular map, when normal maps aren't enabled in the debris_CONFIG.", true); }
+		if(number_of_texture_channels < textures_diffuse_and_normals_and_specular) { show_error("Tried to draw to specular map, when normal maps aren't enabled in the debris_CONFIG.", true); }
 		if (!surface_exists(region.surface_specular)) {
 			region.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(region);
 		}

@@ -1,11 +1,14 @@
 {
   "resources": [
+    {"id":{"name":"Stylized_Stone_Floor_003_roughness","path":"sprites/Stylized_Stone_Floor_003_roughness/Stylized_Stone_Floor_003_roughness.yy",},"order":4,},
     {"id":{"name":"testingAreaBackground","path":"sprites/testingAreaBackground/testingAreaBackground.yy",},"order":1,},
     {"id":{"name":"debris_add_surface","path":"scripts/debris_add_surface/debris_add_surface.yy",},"order":1,},
     {"id":{"name":"debris_add_this","path":"scripts/debris_add_this/debris_add_this.yy",},"order":1,},
     {"id":{"name":"debris_backdrop_assign","path":"scripts/debris_backdrop_assign/debris_backdrop_assign.yy",},"order":2,},
     {"id":{"name":"debris_backdrop_unassign","path":"scripts/debris_backdrop_unassign/debris_backdrop_unassign.yy",},"order":3,},
+    {"id":{"name":"Stylized_Stone_Floor_003_basecolor","path":"sprites/Stylized_Stone_Floor_003_basecolor/Stylized_Stone_Floor_003_basecolor.yy",},"order":5,},
     {"id":{"name":"debris_draw","path":"scripts/debris_draw/debris_draw.yy",},"order":0,},
+    {"id":{"name":"Stylized_Stone_Floor_003_normal","path":"sprites/Stylized_Stone_Floor_003_normal/Stylized_Stone_Floor_003_normal.yy",},"order":3,},
     {"id":{"name":"isBeingDrawnToDebrisSurface","path":"scripts/isBeingDrawnToDebrisSurface/isBeingDrawnToDebrisSurface.yy",},"order":2,},
     {"id":{"name":"forEach","path":"scripts/forEach/forEach.yy",},"order":0,},
     {"id":{"name":"debris_CONFIG","path":"scripts/debris_CONFIG/debris_CONFIG.yy",},"order":1,},
@@ -20,6 +23,7 @@
     {"id":{"name":"clickingAndText","path":"objects/clickingAndText/clickingAndText.yy",},"order":5,},
     {"id":{"name":"background2","path":"sprites/background2/background2.yy",},"order":2,},
     {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":1,},
+    {"id":{"name":"VaryingLighting","path":"shaders/VaryingLighting/VaryingLighting.yy",},"order":0,},
     {"id":{"name":"debris_compositeGraphic","path":"scripts/debris_compositeGraphic/debris_compositeGraphic.yy",},"order":0,},
   ],
   "Options": [

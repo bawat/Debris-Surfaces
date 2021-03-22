@@ -9,7 +9,7 @@ function IGNORE_debris_surface_create_surface_for_region(region) {
 function IGNORE_debris_surface_create_diffuse_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		IGNORE_drawSprites(region.xStart, region.yStart, diffuse_map_sprite_index);
+		IGNORE_drawDefaultBackdrop(region.xStart, region.yStart, global.debris_default_backdrop.diffuse);
 	surface_reset_target();
 	return surf;
 }
@@ -18,7 +18,7 @@ function IGNORE_debris_surface_create_diffuse_surface_for_region(region) {
 function IGNORE_debris_surface_create_normal_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		IGNORE_drawSprites(region.xStart, region.yStart, normal_map_sprite_index);
+		IGNORE_drawDefaultBackdrop(region.xStart, region.yStart, global.debris_default_backdrop.normal);
 	surface_reset_target();
 	return surf;
 }
@@ -27,16 +27,16 @@ function IGNORE_debris_surface_create_normal_surface_for_region(region) {
 function IGNORE_debris_surface_create_specular_surface_for_region(region) {
 	var surf = IGNORE_debris_surface_create_surface_for_region(region);
 	surface_set_target(surf);
-		IGNORE_drawSprites(region.xStart, region.yStart, specular_map_sprite_index);
+		IGNORE_drawDefaultBackdrop(region.xStart, region.yStart, global.debris_default_backdrop.specular);
 	surface_reset_target();
 	return surf;
 }
-function IGNORE_drawSprites(absoluteTopLeftX, absoluteTopLeftY, imageIndex){
+function IGNORE_drawDefaultBackdrop(absoluteTopLeftX, absoluteTopLeftY, spriteIndex){
 	var transformToSurfaceOriginX = absoluteTopLeftX;
 	var transformToSurfaceOriginY = absoluteTopLeftY;
 	
-	var spriteWidth = sprite_get_width(global.debris_backdrop_sprite);
-	var spriteHeight = sprite_get_height(global.debris_backdrop_sprite);
+	var spriteWidth = sprite_get_width(spriteIndex);
+	var spriteHeight = sprite_get_height(spriteIndex);
 	
 	var numberOfTimesToTileX = ceil(region_width*2/spriteWidth);
 	var numberOfTimesToTileY = ceil(region_height*2/spriteHeight);
@@ -49,7 +49,7 @@ function IGNORE_drawSprites(absoluteTopLeftX, absoluteTopLeftY, imageIndex){
 			var xp = lowestTileOriginX + xi * spriteWidth;
 			var yp = lowestTileOriginY + yi * spriteHeight;
 			
-			draw_sprite(global.debris_backdrop_sprite, imageIndex, xp - transformToSurfaceOriginX, yp - transformToSurfaceOriginY);
+			draw_sprite(spriteIndex, 0, xp - transformToSurfaceOriginX, yp - transformToSurfaceOriginY);
 		}
 	}
 }

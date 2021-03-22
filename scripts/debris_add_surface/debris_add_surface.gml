@@ -21,7 +21,7 @@ function debris_add_surface() {
 	surfNormal = argument[6];
 	surfSpecular = argument[7];
 	
-	if(argument_count <= 5) {show_error("Not enough arguments supplied to debris_add_surface()", true);}
+	if(argument_count < 5) {show_error("Not enough arguments supplied to debris_add_surface()", true);}
 	
 	var longestLength = sqrt(power(surface_get_width(surfDiffuse),2)  + power(surface_get_height(surfDiffuse),2));
 
