@@ -5,11 +5,14 @@ attribute vec3 in_Position;                  // (x,y,z)
 //attribute vec3 in_Normal;                  // (x,y,z)     unused in this shader.
 //attribute vec4 in_Colour;                    // (r,g,b,a)
 attribute vec2 in_TextureCoord;              // (u,v)
-uniform vec4 UVWremappingTransform;
+uniform vec4 UVWNormalRemappingTransform;
+uniform vec4 UVWSpecularRemappingTransform;
 
 varying vec2 v_vTextureCoord;
 varying vec2 v_vNormalTexcoord;
 varying vec2 v_vSpecularTexcoord;
+
+varying vec4 v_Position;
 //varying vec4 v_vColour;
 
 void main()
@@ -20,9 +23,16 @@ void main()
     //v_vColour = in_Colour;
     v_vTextureCoord = in_TextureCoord;
 	
-	float URemapDelta = UVWremappingTransform[0];
-	float URemapScale = UVWremappingTransform[1];
-	float VRemapDelta = UVWremappingTransform[2];
-	float VRemapScale = UVWremappingTransform[3];
+	float URemapDelta = UVWNormalRemappingTransform[0];
+	float URemapScale = UVWNormalRemappingTransform[1];
+	float VRemapDelta = UVWNormalRemappingTransform[2];
+	float VRemapScale = UVWNormalRemappingTransform[3];
 	v_vNormalTexcoord = vec2(URemapDelta + in_TextureCoord.x*URemapScale,  VRemapDelta + in_TextureCoord.y*VRemapScale);
+	
+	float SpecularURemapDelta = UVWSpecularRemappingTransform[0];
+	float SpecularURemapScale = UVWSpecularRemappingTransform[1];
+	float SpecularVRemapDelta = UVWSpecularRemappingTransform[2];
+	float SpecularVRemapScale = UVWSpecularRemappingTransform[3];
+	v_vSpecularTexcoord = vec2(SpecularURemapDelta + in_TextureCoord.x*SpecularURemapScale,  SpecularVRemapDelta + in_TextureCoord.y*SpecularVRemapScale);
+	v_Position = gl_Position;
 }

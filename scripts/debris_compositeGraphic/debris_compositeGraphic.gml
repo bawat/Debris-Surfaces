@@ -4,8 +4,8 @@
 /// @param OPTIONAL normalsSpriteOrSurface The normals sprite to provide when asked
 /// @param OPTIONAL specularSpriteOrSurface The specular sprite to provide when asked
 function debris_compositeGraphic(diffuseSpriteOrSurface) {
-    var normals = pointer_null; if(argument_count >= 2) { normals = argument[1]; }
-    var specular = pointer_null; if(argument_count >= 3) { specular = argument[2]; }
+    var normals = pointer_invalid; if(argument_count >= 2) { normals = argument[1]; }
+    var specular = pointer_invalid; if(argument_count >= 3) { specular = argument[2]; }
     
     #macro IGNORE_debris_provide_diffuse "diffuse"
     #macro IGNORE_debris_provide_normals "normals"

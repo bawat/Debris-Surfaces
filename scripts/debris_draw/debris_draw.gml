@@ -57,7 +57,7 @@ function debris_draw() {
 					var normalMapTexture = surface_get_texture(existingRegion.surface_normal);
 					texture_set_stage(normalMapUniform, normalMapTexture);
 					
-					var UVWremappingTransformUniform = shader_get_uniform(VaryingLighting,"UVWremappingTransform");
+					var UVWremappingTransformUniform = shader_get_uniform(VaryingLighting,"UVWNormalRemappingTransform");
 					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, normalMapTexture));
 				}
 				
@@ -68,6 +68,9 @@ function debris_draw() {
 				    var specularMapUniform = shader_get_sampler_index(VaryingLighting,"specularMap");
 					var specularMapTexture = surface_get_texture(existingRegion.surface_specular);
 					texture_set_stage(specularMapUniform, specularMapTexture);
+					
+					var UVWremappingTransformUniform = shader_get_uniform(VaryingLighting,"UVWSpecularRemappingTransform");
+					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, specularMapTexture));
 				}
 				
 			    time = shader_get_uniform(VaryingLighting,"uTime");

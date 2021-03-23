@@ -7,7 +7,7 @@ function IGNORE_debris_surface_provide_region(argument0, argument1) {
 	yp = argument1;
 
 	//Check the existing regions to see if one of them contains the coordiante
-	locatedRegion = pointer_null;
+	locatedRegion = pointer_invalid;
 	forEach(global.all_debris_surface_regions, function(element){
 		if(xp >= element.xStart && xp < element.xEnd){
 			if(yp >= element.yStart && yp < element.yEnd){
@@ -15,7 +15,7 @@ function IGNORE_debris_surface_provide_region(argument0, argument1) {
 			}
 		}
 	});
-	if(locatedRegion != pointer_null){ return locatedRegion; }
+	if(locatedRegion != pointer_invalid){ return locatedRegion; }
 
 	//If we reach this section of code, then no region for the coordinate has been found. Create one from scratch.
 	var posX = floor(xp/region_width)*region_width;
