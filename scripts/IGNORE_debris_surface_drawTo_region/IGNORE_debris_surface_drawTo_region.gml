@@ -32,7 +32,7 @@ function IGNORE_debris_surface_drawTo_region(region, diffuseDrawLamda) {
 		if (!surface_exists(region.surface_specular)) {
 			region.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(region);
 		}
-		var specularLamda = argument[2];
+		var specularLamda = argument[3];
 		if(!is_method(specularLamda)) { show_error("Expected specularLamda, but got something different.", true); }
 		surface_set_target(region.surface_specular);
 			specularLamda();

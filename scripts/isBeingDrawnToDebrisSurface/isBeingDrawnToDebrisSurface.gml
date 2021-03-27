@@ -7,3 +7,24 @@ function isBeingDrawnToDebrisSurface() {
 	}
 	return global.debris_isBeingDrawnToDebrisSurface;
 }
+function isBeingDrawnToDebrisSurface_Diffuse() {
+	if(!isBeingDrawnToDebrisSurface()) return false;
+	if(!variable_global_exists("debris_requestedTextureFromCompositeGraphicProvider")){
+		global.debris_requestedTextureFromCompositeGraphicProvider = IGNORE_debris_provide_diffuse;
+	}
+	return global.debris_requestedTextureFromCompositeGraphicProvider == IGNORE_debris_provide_diffuse;
+}
+function isBeingDrawnToDebrisSurface_Normals() {
+	if(!isBeingDrawnToDebrisSurface()) return false;
+	if(!variable_global_exists("debris_requestedTextureFromCompositeGraphicProvider")){
+		global.debris_requestedTextureFromCompositeGraphicProvider = IGNORE_debris_provide_diffuse;
+	}
+	return global.debris_requestedTextureFromCompositeGraphicProvider == IGNORE_debris_provide_normals;
+}
+function isBeingDrawnToDebrisSurface_Specular() {
+	if(!isBeingDrawnToDebrisSurface()) return false;
+	if(!variable_global_exists("debris_requestedTextureFromCompositeGraphicProvider")){
+		global.debris_requestedTextureFromCompositeGraphicProvider = IGNORE_debris_provide_diffuse;
+	}
+	return global.debris_requestedTextureFromCompositeGraphicProvider == IGNORE_debris_provide_specular;
+}

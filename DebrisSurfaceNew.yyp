@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"wallSpecular","path":"sprites/wallSpecular/wallSpecular.yy",},"order":7,},
     {"id":{"name":"testingAreaBackground","path":"sprites/testingAreaBackground/testingAreaBackground.yy",},"order":1,},
     {"id":{"name":"wall","path":"sprites/wall/wall.yy",},"order":9,},
     {"id":{"name":"debris_add_surface","path":"scripts/debris_add_surface/debris_add_surface.yy",},"order":1,},
@@ -12,6 +11,7 @@
     {"id":{"name":"forEach","path":"scripts/forEach/forEach.yy",},"order":0,},
     {"id":{"name":"debris_CONFIG","path":"scripts/debris_CONFIG/debris_CONFIG.yy",},"order":1,},
     {"id":{"name":"IGNORE_debris_surface_get_surrounding_regions","path":"scripts/IGNORE_debris_surface_get_surrounding_regions/IGNORE_debris_surface_get_surrounding_regions.yy",},"order":1,},
+    {"id":{"name":"wallSpecular","path":"sprites/wallSpecular/wallSpecular.yy",},"order":10,},
     {"id":{"name":"IGNORE_debris_surface_provide_region","path":"scripts/IGNORE_debris_surface_provide_region/IGNORE_debris_surface_provide_region.yy",},"order":2,},
     {"id":{"name":"IGNORE_debris_surface_new_region","path":"scripts/IGNORE_debris_surface_new_region/IGNORE_debris_surface_new_region.yy",},"order":3,},
     {"id":{"name":"IGNORE_debris_surface_drawTo_region","path":"scripts/IGNORE_debris_surface_drawTo_region/IGNORE_debris_surface_drawTo_region.yy",},"order":4,},
