@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"testingAreaBackground","path":"sprites/testingAreaBackground/testingAreaBackground.yy",},"order":1,},
     {"id":{"name":"wall","path":"sprites/wall/wall.yy",},"order":9,},
     {"id":{"name":"debris_add_surface","path":"scripts/debris_add_surface/debris_add_surface.yy",},"order":1,},
     {"id":{"name":"debris_add_this","path":"scripts/debris_add_this/debris_add_this.yy",},"order":1,},
@@ -12,6 +11,7 @@
     {"id":{"name":"debris_CONFIG","path":"scripts/debris_CONFIG/debris_CONFIG.yy",},"order":1,},
     {"id":{"name":"IGNORE_debris_surface_get_surrounding_regions","path":"scripts/IGNORE_debris_surface_get_surrounding_regions/IGNORE_debris_surface_get_surrounding_regions.yy",},"order":1,},
     {"id":{"name":"wallSpecular","path":"sprites/wallSpecular/wallSpecular.yy",},"order":10,},
+    {"id":{"name":"spr_blood","path":"sprites/spr_blood/spr_blood.yy",},"order":11,},
     {"id":{"name":"IGNORE_debris_surface_provide_region","path":"scripts/IGNORE_debris_surface_provide_region/IGNORE_debris_surface_provide_region.yy",},"order":2,},
     {"id":{"name":"IGNORE_debris_surface_new_region","path":"scripts/IGNORE_debris_surface_new_region/IGNORE_debris_surface_new_region.yy",},"order":3,},
     {"id":{"name":"IGNORE_debris_surface_drawTo_region","path":"scripts/IGNORE_debris_surface_drawTo_region/IGNORE_debris_surface_drawTo_region.yy",},"order":4,},
@@ -19,11 +19,13 @@
     {"id":{"name":"IGNORE_isOnScreen","path":"scripts/IGNORE_isOnScreen/IGNORE_isOnScreen.yy",},"order":6,},
     {"id":{"name":"wallNormal","path":"sprites/wallNormal/wallNormal.yy",},"order":8,},
     {"id":{"name":"fx_background_debris","path":"objects/fx_background_debris/fx_background_debris.yy",},"order":1,},
-    {"id":{"name":"fx_blood","path":"objects/fx_blood/fx_blood.yy",},"order":3,},
     {"id":{"name":"clickingAndText","path":"objects/clickingAndText/clickingAndText.yy",},"order":5,},
+    {"id":{"name":"fx_spriteBlood","path":"objects/fx_spriteBlood/fx_spriteBlood.yy",},"order":6,},
     {"id":{"name":"background2","path":"sprites/background2/background2.yy",},"order":2,},
+    {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":12,},
     {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":1,},
     {"id":{"name":"VaryingLighting","path":"shaders/VaryingLighting/VaryingLighting.yy",},"order":0,},
+    {"id":{"name":"fx_spriteCrate","path":"objects/fx_spriteCrate/fx_spriteCrate.yy",},"order":7,},
     {"id":{"name":"debris_compositeGraphic","path":"scripts/debris_compositeGraphic/debris_compositeGraphic.yy",},"order":0,},
   ],
   "Options": [

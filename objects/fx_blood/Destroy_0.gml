@@ -1,6 +1,0 @@
-part_particles_clear(bloodEmitter)
-part_emitter_clear(bloodSpreadSystem,bloodEmitter)
-
-part_type_destroy(bloodParticle);
-part_emitter_destroy(bloodSpreadSystem, bloodEmitter);
-part_system_destroy(bloodSpreadSystem);
