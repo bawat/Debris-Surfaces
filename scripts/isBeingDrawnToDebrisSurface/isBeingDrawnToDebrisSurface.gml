@@ -28,3 +28,7 @@ function isBeingDrawnToDebrisSurface_Specular() {
 	}
 	return global.debris_requestedTextureFromCompositeGraphicProvider == IGNORE_debris_provide_specular;
 }
+
+#macro IGNORE_debris_provide_diffuse "diffuse"
+#macro IGNORE_debris_provide_normals "normals"
+#macro IGNORE_debris_provide_specular "specular"
