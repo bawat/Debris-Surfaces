@@ -10,6 +10,7 @@
     {"id":{"name":"forEach","path":"scripts/forEach/forEach.yy",},"order":0,},
     {"id":{"name":"debris_compositeDrawing","path":"scripts/debris_compositeDrawing/debris_compositeDrawing.yy",},"order":3,},
     {"id":{"name":"debris_CONFIG","path":"scripts/debris_CONFIG/debris_CONFIG.yy",},"order":1,},
+    {"id":{"name":"IGNORE_draw_to_surface","path":"scripts/IGNORE_draw_to_surface/IGNORE_draw_to_surface.yy",},"order":8,},
     {"id":{"name":"IGNORE_debris_surface_get_surrounding_regions","path":"scripts/IGNORE_debris_surface_get_surrounding_regions/IGNORE_debris_surface_get_surrounding_regions.yy",},"order":1,},
     {"id":{"name":"wallSpecular","path":"sprites/wallSpecular/wallSpecular.yy",},"order":10,},
     {"id":{"name":"spr_blood","path":"sprites/spr_blood/spr_blood.yy",},"order":11,},
@@ -26,7 +27,8 @@
     {"id":{"name":"background2","path":"sprites/background2/background2.yy",},"order":2,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":12,},
     {"id":{"name":"room0","path":"rooms/room0/room0.yy",},"order":1,},
-    {"id":{"name":"VaryingLighting","path":"shaders/VaryingLighting/VaryingLighting.yy",},"order":0,},
+    {"id":{"name":"GetBackdropNormals","path":"shaders/GetBackdropNormals/GetBackdropNormals.yy",},"order":0,},
+    {"id":{"name":"BackdropLighting","path":"shaders/BackdropLighting/BackdropLighting.yy",},"order":1,},
     {"id":{"name":"fx_spriteCrate","path":"objects/fx_spriteCrate/fx_spriteCrate.yy",},"order":7,},
   ],
   "Options": [

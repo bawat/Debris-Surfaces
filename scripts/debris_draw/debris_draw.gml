@@ -1,7 +1,6 @@
 /// @author Bawat (bawat@hotmail.co.uk)
 /// @description Used to draw the debris placed inside the surface
 function calculateUVWRemappingDataWithTextures(argument0, argument1) {
-	var diffuseLayer = 0, normalLayer = 1;
 
 	var diffuseMapUVW = texture_get_uvs(argument0);
 	var normalMapUVW = texture_get_uvs(argument1);
@@ -45,7 +44,7 @@ function debris_draw() {
 			//Draw a green background behind any badly loaded Debris Surfaces
 			draw_rectangle_color(existingRegion.xStart, existingRegion.yStart, existingRegion.xEnd, existingRegion.yEnd, c_green,c_green,c_green,c_green, false);
 			
-			shader_set(VaryingLighting);
+			shader_set(BackdropLighting);
 			
 				var diffuseMapTexture = surface_get_texture(existingRegion.surface);
 			
@@ -53,11 +52,11 @@ function debris_draw() {
 					if(!surface_exists(existingRegion.surface_normal)){
 						existingRegion.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(existingRegion);
 					}
-				    var normalMapUniform = shader_get_sampler_index(VaryingLighting,"normalMap");
+				    var normalMapUniform = shader_get_sampler_index(BackdropLighting,"normalMap");
 					var normalMapTexture = surface_get_texture(existingRegion.surface_normal);
 					texture_set_stage(normalMapUniform, normalMapTexture);
 					
-					var UVWremappingTransformUniform = shader_get_uniform(VaryingLighting,"UVWNormalRemappingTransform");
+					var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWNormalRemappingTransform");
 					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, normalMapTexture));
 				}
 				
@@ -65,15 +64,15 @@ function debris_draw() {
 					if(!surface_exists(existingRegion.surface_specular)){
 						existingRegion.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(existingRegion);
 					}
-				    var specularMapUniform = shader_get_sampler_index(VaryingLighting,"specularMap");
+				    var specularMapUniform = shader_get_sampler_index(BackdropLighting,"specularMap");
 					var specularMapTexture = surface_get_texture(existingRegion.surface_specular);
 					texture_set_stage(specularMapUniform, specularMapTexture);
 					
-					var UVWremappingTransformUniform = shader_get_uniform(VaryingLighting,"UVWSpecularRemappingTransform");
+					var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWSpecularRemappingTransform");
 					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, specularMapTexture));
 				}
 				
-			    time = shader_get_uniform(VaryingLighting,"uTime");
+			    time = shader_get_uniform(BackdropLighting,"uTime");
 			    shader_set_uniform_f(time, current_time/1000);
 			
 				if(!surface_exists(existingRegion.surface)){
