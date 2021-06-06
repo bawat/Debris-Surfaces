@@ -18,9 +18,16 @@ function debris_compositeDrawing(rotation, diffuseLamda, normalLamda, percentOfN
 		
 			surfaceRadius = 64;
 		
-			var toDrawDiffuseSurface = IGNORE_draw_to_surface(diffuseLamda, rotation, surfaceRadius);
-			var toDrawNormalSurface = IGNORE_draw_to_surface(normalLamda, rotation, surfaceRadius);
-			var toDrawSpecularSurface = IGNORE_draw_to_surface(specularLamda, rotation, surfaceRadius);
+			if(!variable_instance_exists(id, "toDrawDiffuseSurface") || !surface_exists(toDrawDiffuseSurface))
+			{ toDrawDiffuseSurface = surface_create(surfaceRadius*2, surfaceRadius*2);}
+			if(!variable_instance_exists(id, "toDrawNormalSurface") || !surface_exists(toDrawNormalSurface))
+			{ toDrawNormalSurface = surface_create(surfaceRadius*2, surfaceRadius*2);}
+			if(!variable_instance_exists(id, "toDrawSpecularSurface") || !surface_exists(toDrawSpecularSurface))
+			{ toDrawSpecularSurface = surface_create(surfaceRadius*2, surfaceRadius*2);}
+		
+			IGNORE_draw_to_surface(diffuseLamda, toDrawDiffuseSurface, surfaceRadius, surfaceRadius, rotation);
+			IGNORE_draw_to_surface(normalLamda, toDrawNormalSurface, surfaceRadius, surfaceRadius, rotation);
+			IGNORE_draw_to_surface(specularLamda, toDrawSpecularSurface, surfaceRadius, surfaceRadius, rotation);
 		
 			var toDrawDiffuseTexture = surface_get_texture(toDrawDiffuseSurface);
 		
