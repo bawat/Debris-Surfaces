@@ -28,8 +28,35 @@ function IGNORE_isOnScreen() {
 
 }
 function IGNORE_regionOnScreen(region){
-	return IGNORE_isOnScreen(region.xStart, region.yStart) ||
-			IGNORE_isOnScreen(region.xStart + region_width, region.yStart) ||
-			IGNORE_isOnScreen(region.xStart, region.yStart + region_height) ||
-			IGNORE_isOnScreen(region.xStart + region_width, region.yStart + region_height);
+	var camx = camera_get_view_x(view_camera[0]);
+	var camy = camera_get_view_y(view_camera[0]);
+	var camw = camera_get_view_width(view_camera[0]);
+	var camh = camera_get_view_height(view_camera[0]);
+	var xp;
+	var yp;
+	
+	
+	var onScreen = true;
+	
+	xp = region.xStart;
+	yp = region.yStart;
+	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
+	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	
+	xp = region.xStart + region_width;
+	yp = region.yStart;
+	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
+	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	
+	xp = region.xStart;
+	yp = region.yStart + region_height;
+	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
+	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	
+	xp = region.xStart + region_width;
+	yp = region.yStart + region_height;
+	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
+	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	
+	return onScreen
 }
