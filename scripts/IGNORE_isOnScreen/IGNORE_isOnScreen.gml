@@ -40,23 +40,31 @@ function IGNORE_regionOnScreen(region){
 	
 	xp = region.xStart;
 	yp = region.yStart;
-	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
-	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	onScreen = (xp >= camx && xp <= camx + camw) && (yp >= camy && yp <= camy + camh);
+	
+	if(onScreen) {
+		return true;
+	}
 	
 	xp = region.xStart + region_width;
 	yp = region.yStart;
-	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
-	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	onScreen = (xp >= camx && xp <= camx + camw) && (yp >= camy && yp <= camy + camh);
+	
+	if(onScreen) {
+		return true;
+	}
 	
 	xp = region.xStart;
 	yp = region.yStart + region_height;
-	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
-	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	onScreen = (xp >= camx && xp <= camx + camw) && (yp >= camy && yp <= camy + camh);
+	
+	if(onScreen) {
+		return true;
+	}
 	
 	xp = region.xStart + region_width;
 	yp = region.yStart + region_height;
-	onScreen = onScreen && (xp >= camx && xp <= camx + camw);
-	onScreen = onScreen && (yp >= camy && yp <= camy + camh);
+	onScreen = (xp >= camx && xp <= camx + camw) && (yp >= camy && yp <= camy + camh);
 	
 	return onScreen
 }
