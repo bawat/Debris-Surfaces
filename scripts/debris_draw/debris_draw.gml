@@ -38,49 +38,44 @@ function debris_draw() {
 	debugHoveredRegionXEnd = 0;
 	debugHoveredRegionYEnd = 0;
 
-
+	shader_set(BackdropLighting);
 	forEach(global.all_debris_surface_regions, function(existingRegion){
 		if(IGNORE_regionOnScreen(existingRegion)){
-			//Draw a green background behind any badly loaded Debris Surfaces
-			draw_rectangle_color(existingRegion.xStart, existingRegion.yStart, existingRegion.xEnd, existingRegion.yEnd, c_green,c_green,c_green,c_green, false);
+			var diffuseMapTexture = surface_get_texture(existingRegion.surface);
 			
-			shader_set(BackdropLighting);
-			
-				var diffuseMapTexture = surface_get_texture(existingRegion.surface);
-			
-				if(number_of_texture_channels >= textures_diffuse_and_normals){
-					if(!surface_exists(existingRegion.surface_normal)){
-						existingRegion.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(existingRegion);
-					}
-				    var normalMapUniform = shader_get_sampler_index(BackdropLighting,"normalMap");
-					var normalMapTexture = surface_get_texture(existingRegion.surface_normal);
-					texture_set_stage(normalMapUniform, normalMapTexture);
+			if(number_of_texture_channels >= textures_diffuse_and_normals){
+				if(!surface_exists(existingRegion.surface_normal)){
+					existingRegion.surface_normal = IGNORE_debris_surface_create_normal_surface_for_region(existingRegion);
+				}
+				var normalMapUniform = shader_get_sampler_index(BackdropLighting,"normalMap");
+				var normalMapTexture = surface_get_texture(existingRegion.surface_normal);
+				texture_set_stage(normalMapUniform, normalMapTexture);
 					
-					var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWNormalRemappingTransform");
-					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, normalMapTexture));
-				}
+				var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWNormalRemappingTransform");
+				shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, normalMapTexture));
+			}
 				
-				if(number_of_texture_channels >= textures_diffuse_and_normals_and_specular){
-					if(!surface_exists(existingRegion.surface_specular)){
-						existingRegion.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(existingRegion);
-					}
-				    var specularMapUniform = shader_get_sampler_index(BackdropLighting,"specularMap");
-					var specularMapTexture = surface_get_texture(existingRegion.surface_specular);
-					texture_set_stage(specularMapUniform, specularMapTexture);
+			if(number_of_texture_channels >= textures_diffuse_and_normals_and_specular){
+				if(!surface_exists(existingRegion.surface_specular)){
+					existingRegion.surface_specular = IGNORE_debris_surface_create_specular_surface_for_region(existingRegion);
+				}
+				var specularMapUniform = shader_get_sampler_index(BackdropLighting,"specularMap");
+				var specularMapTexture = surface_get_texture(existingRegion.surface_specular);
+				texture_set_stage(specularMapUniform, specularMapTexture);
 					
-					var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWSpecularRemappingTransform");
-					shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, specularMapTexture));
-				}
+				var UVWremappingTransformUniform = shader_get_uniform(BackdropLighting,"UVWSpecularRemappingTransform");
+				shader_set_uniform_f_array(UVWremappingTransformUniform, calculateUVWRemappingDataWithTextures(diffuseMapTexture, specularMapTexture));
+			}
 				
-			    time = shader_get_uniform(BackdropLighting,"uTime");
-			    shader_set_uniform_f(time, current_time/1000);
+			time = shader_get_uniform(BackdropLighting,"uTime");
+			shader_set_uniform_f(time, current_time/1000);
 			
-				if(!surface_exists(existingRegion.surface)){
-					existingRegion.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(existingRegion);
-				}
-				draw_surface(existingRegion.surface, existingRegion.xStart, existingRegion.yStart);
+			if(!surface_exists(existingRegion.surface)){
+				existingRegion.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(existingRegion);
+			}
+			draw_surface(existingRegion.surface, existingRegion.xStart, existingRegion.yStart);
 			
-			shader_reset();
+			
 		
 			//Setup for drawing a rectangle around the hovered-over region to show that the map is actually made up of small regions
 			if(existingRegion.xStart < mouse_x && mouse_x < existingRegion.xEnd && existingRegion.yStart < mouse_y && mouse_y < existingRegion.yEnd){
@@ -91,6 +86,7 @@ function debris_draw() {
 			}
 		}
 	});
+	shader_reset();
 
 	//Draw a rectangle around the hovered-over region to show that the map is actually made up of small regions
 	if(show_segment_outline){

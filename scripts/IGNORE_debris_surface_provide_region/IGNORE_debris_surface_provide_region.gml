@@ -8,19 +8,9 @@ function IGNORE_debris_surface_provide_region(argument0, argument1) {
 	var xp = debris_surface_provide_region_xp;
 	var yp = debris_surface_provide_region_yp;
 
-	//Check the existing regions to see if one of them contains the coordiante
-	locatedRegion = pointer_invalid;
-	forEach(global.all_debris_surface_regions, function(element){
-		var xp = debris_surface_provide_region_xp;
-		var yp = debris_surface_provide_region_yp;
-
-		if(xp >= element.xStart && xp < element.xEnd){
-			if(yp >= element.yStart && yp < element.yEnd){
-				locatedRegion = element;
-			}
-		}
-	});
-	if(locatedRegion != pointer_invalid){ return locatedRegion; }
+	if(IGNORE_regionFastFinder_Exists(xp, yp)) {
+		return IGNORE_regionFastFinder_Retrieve(xp, yp);
+	}
 
 	//If we reach this section of code, then no region for the coordinate has been found. Create one from scratch.
 	var posX = floor(xp/region_width)*region_width;

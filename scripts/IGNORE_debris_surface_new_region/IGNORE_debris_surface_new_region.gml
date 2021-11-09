@@ -23,14 +23,9 @@ function IGNORE_debris_surface_new_region() {
 	}
 
 	//Quick check just in case I try to create a region that already exists
-	forEach(global.all_debris_surface_regions, function(element){
-		if(element.xStart == absoluteTopLeftX){
-		if(element.yStart == absoluteTopLeftY){
-		if(element.xEnd == absoluteBottomRightX){
-		if(element.yEnd == absoluteBottomRightY){
-			show_error("Tried to add a region that already exists.", true);
-		}}}}
-	});
+	if(IGNORE_regionFastFinder_Exists(absoluteTopLeftX, absoluteTopLeftY)) {
+		show_error("Tried to add a region that already exists.", true);
+	}
 
 	region.surface = IGNORE_debris_surface_create_diffuse_surface_for_region(region);
 	if(number_of_texture_channels >= textures_diffuse_and_normals){
@@ -42,6 +37,7 @@ function IGNORE_debris_surface_new_region() {
 
 	//Add the new region into the region list
 	global.all_debris_surface_regions[numberOfRegions] = region;
+	IGNORE_regionFastFinder_Store(region);
 
 	//Returns the new region
 	return region;

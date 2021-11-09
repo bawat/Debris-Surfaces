@@ -11,16 +11,16 @@ function IGNORE_calculateUVWRemappingDataWithTextures(argument0, argument1) {
 	var diffuseMapUVW = texture_get_uvs(argument0);
 	var normalMapUVW = texture_get_uvs(argument1);
 	
-	#macro left 0
-	#macro right 2
-	#macro top 1
-	#macro bottom 3
+	#macro IGNORE_left 0
+	#macro IGNORE_right 2
+	#macro IGNORE_top 1
+	#macro IGNORE_bottom 3
 
-	var URemapDelta = normalMapUVW[left] - diffuseMapUVW[left];
-	var URemapScale = (normalMapUVW[right] - normalMapUVW[left])/(diffuseMapUVW[right] - diffuseMapUVW[left])
+	var URemapDelta = normalMapUVW[IGNORE_left] - diffuseMapUVW[IGNORE_left];
+	var URemapScale = (normalMapUVW[IGNORE_right] - normalMapUVW[IGNORE_left])/(diffuseMapUVW[IGNORE_right] - diffuseMapUVW[IGNORE_left])
 
-	var VRemapDelta = normalMapUVW[top] - diffuseMapUVW[top];
-	var VRemapScale = (normalMapUVW[bottom] - normalMapUVW[top])/(diffuseMapUVW[bottom] - diffuseMapUVW[top])
+	var VRemapDelta = normalMapUVW[IGNORE_top] - diffuseMapUVW[IGNORE_top];
+	var VRemapScale = (normalMapUVW[IGNORE_bottom] - normalMapUVW[IGNORE_top])/(diffuseMapUVW[IGNORE_bottom] - diffuseMapUVW[IGNORE_top])
 
 
 	var arr = 0;
